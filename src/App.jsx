@@ -6,6 +6,7 @@ import { RestrictedRoute } from "components/RestrictedRoute";
 import { refreshUser } from "./redux/auth/authOperations";
 import { useAuth } from "hooks/useAuth";
 import { Layout } from "components/Layout";
+import { Loader } from "components/Loader";
 
 
 const HomePage = lazy(() => import('./pages/Home'));
@@ -22,7 +23,7 @@ export const App = () => {
     }, [dispatch]);
 
     return isRefreshing ? (
-        <b>Refreshing user...</b>
+        <Loader/>
     ) : (
       <>
         <Routes>
