@@ -3,23 +3,22 @@ import styled from "styled-components";
 export const ContactData = styled.form`
 display: flex;
 flex-direction: column;
-max-width: 300px;
+min-width: 320px;
 border: 2px solid black;
 padding: 10px;
 `
 
 export const ContactInput = styled.input`
-margin: 10px;
-margin-left: 0px;
-max-width: 150px;
+margin: 10px 0px 10px 0px;
+// max-width: 150px;
 transition: border-color 0.5s;
 
 &:hover {
-border: 2px solid steelblue;
+border: 2px solid deepskyblue;
 }
 
 &:focus {
-border: 2px solid steelblue;
+border: 2px solid deepskyblue;
 }
 `
 

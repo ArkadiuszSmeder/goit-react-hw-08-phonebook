@@ -1,10 +1,22 @@
+import { Helmet } from 'react-helmet';
+import { ContactForm } from "components/ContactForm";
+import { Filter } from "components/Filter";
+import { ContactsContainer } from "../styled/styled-contactsPage";
+import { ContactsList } from "components/ContactsList";
+
 const Contacts = () => {
     return (
-        <div>
+        <ContactsContainer>
+          <Helmet>
+            <title>Your contacts</title>
+          </Helmet>
         <h1>
-          Contacts welcome page
+          Add or find contact
         </h1>
-      </div>
+        <ContactForm/>
+        <Filter/>
+        <ContactsList/>
+      </ContactsContainer>
     )
 }
 

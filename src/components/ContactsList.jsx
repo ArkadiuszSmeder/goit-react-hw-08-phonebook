@@ -1,10 +1,10 @@
 import React from "react";
 import { DeleteButton, ListElement, StyledList } from "styled/styled-contacts";
-import { deleteContact } from "../redux/operations";
+import { deleteContact } from "../redux/contacts/operations";
 import { useDispatch, useSelector } from "react-redux";
-import { selectVisibleContacts } from "../redux/selectors";
+import { selectVisibleContacts } from "../redux/contacts/selectors";
 
-export const Contacts = () => {
+export const ContactsList = () => {
   const dispatch = useDispatch();
   const visibleContacts = useSelector(selectVisibleContacts)
 
@@ -20,7 +20,7 @@ export const Contacts = () => {
     <StyledList>
       {visibleContacts.map((contact) => (
         <ListElement key={contact.id}>
-          {contact.name}: {contact.phone}
+          {contact.name}: {contact.number}
           <DeleteButton onClick={() => handleDelete(contact.id)}>Delete</DeleteButton>
         </ListElement>
       ))}

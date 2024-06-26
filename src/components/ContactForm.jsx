@@ -1,9 +1,9 @@
 import React from "react";
 import { ContactData, ContactInput, ContactSubmit, ContactLabel } from "../styled/styled-contactForm"
 import { useDispatch, useSelector } from "react-redux";
-import { addContact } from "../redux/operations";
+import { addContact } from "../redux/contacts/operations";
 import { nanoid } from '@reduxjs/toolkit';
-import { selectContacts } from "../redux/selectors";
+import { selectContacts } from "../redux/contacts/selectors";
 
 export const ContactForm = () => {
 
@@ -17,17 +17,17 @@ export const ContactForm = () => {
     event.preventDefault();
     const form = event.currentTarget;
     const name = form.elements.name.value;
-    const phone = form.elements.phone.value;
+    const number = form.elements.number.value;
 
     const duplicate = contacts.find(contact => 
-      contact.name === name || contact.phone === phone
+      contact.name === name || contact.number === number
     );
     if (duplicate) {
-      alert(`Contact ${name} or phone number ${phone} already exists in your phonebook`);
+      alert(`Contact ${name} or phone number ${number} already exists in your phonebook`);
       return;
     }
 
-    dispatch(addContact({name, phone}));
+    dispatch(addContact({name, number}));
     form.reset();
   }
 
@@ -45,7 +45,7 @@ export const ContactForm = () => {
       <ContactLabel htmlFor="number">Number</ContactLabel>
       <ContactInput
         id={numberInputId}
-        name="phone"
+        name="number"
         type="tel"
         pattern="[0-9+-]*"
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
